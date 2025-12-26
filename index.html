@@ -19,7 +19,7 @@ body {
 
 #namaTamu {
   position: absolute;
-  top: 1200px;              /* ⬅️ posisi agak ke bawah */
+  top: 1280px;              /* ⬅️ posisi agak ke bawah */
   left: 50%;
   transform: translateX(-50%);
   color: #000;
@@ -56,7 +56,7 @@ const nama = params.get("to");
 
 if (nama) {
   const box = document.getElementById("namaTamu");
-  box.innerText = decodeURIComponent(nama) + " di Tempat";
+  box.innerText = decodeURIComponent(nama);
 
   // fade in
   box.style.opacity = "1";
