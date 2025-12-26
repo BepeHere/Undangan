@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>Undangan Tasyakuran Khitan Dzikry</title>
+
+<style>
+body {
+  margin: 0;
+  background-color: #f4f4f4;
+  font-family: "Times New Roman", serif;
+}
+
+.container {
+  max-width: 900px;
+  margin: 40px auto;
+  position: relative;
+}
+
+#namaTamu {
+  position: absolute;
+  top: 120px;              /* ⬅️ posisi agak ke bawah */
+  left: 50%;
+  transform: translateX(-50%);
+  color: #000;
+  font-size: 22px;
+  letter-spacing: 0.8px;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 1s ease;  /* fade effect */
+  z-index: 10;
+  text-shadow: 0 2px 6px rgba(0,0,0,0.6); /* agar tetap terbaca */
+}
+
+video {
+  width: 100%;
+  border-radius: 6px;
+}
+</style>
+</head>
+
+<body>
+<div class="container">
+
+  <div id="namaTamu"></div>
+
+  <video autoplay controls>
+    <source src="https://drive.google.com/file/d/1Ix2F4t9IhKbzfOh4mf4c9ujRomfBYykq/view?usp=sharing" type="video/mp4">
+  </video>
+
+</div>
+
+<script>
+const params = new URLSearchParams(window.location.search);
+const nama = params.get("to");
+
+if (nama) {
+  const box = document.getElementById("namaTamu");
+  box.innerText = decodeURIComponent(nama) + <br> + " di Tempat";
+
+  // fade in
+  box.style.opacity = "1";
+
+  // fade out di detik 2,5
+  setTimeout(() => {
+    box.style.opacity = "0";
+  }, 2500);
+}
+</script>
+</body>
+</html>
+
